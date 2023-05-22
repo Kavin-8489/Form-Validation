@@ -52,11 +52,6 @@ function App() {
     //list where the each item represents a required change.
     const changes = (val.match(repetition) || []).map(s => s.length).sort((a, b) => b - a);
 
-    //discard the changes that require the fewest removals first.
-    let toRemove = val.length - maxL;
-    while (changes.at(-1) <= toRemove) {
-      toRemove -= changes.pop();
-    }
 
     //Final Output 
     const numChanges = Math.max(
@@ -79,6 +74,9 @@ function App() {
                 type={values.showPassword ? 'text' : 'password'}
                 value={values.password}
                 onChange={handleChange('password')}
+                inputProps={{
+                  'data-testid':"input_f"
+                }}
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
@@ -97,12 +95,12 @@ function App() {
 
           </CardContent>
           <CardActions style={{ padding: '0 0 24px 24px' }}>
-            <Button variant="contained" color="primary" onClick={handleClick}>
+            <Button variant="contained" color="primary" onClick={handleClick} data-testid = "btn">
               Verify
             </Button>
           </CardActions>
         </Card>
-        <p>OUTPUT : {values.result}</p>
+        <p data-testid = "op">OUTPUT : {values.result}</p>
       </div>
 
     </div>
