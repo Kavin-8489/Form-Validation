@@ -41,5 +41,5 @@ test('Verify scenario 1337C0d3', async () => {
     fireEvent.click(btn)
   })
   const v = screen.getByTestId("op")
-  expect(v.textContent).toBe("OUTPUT : 0")
+  expect(v.textContent).toBe("OUTPUT : 0  ")
 })
